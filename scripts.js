@@ -83,6 +83,6 @@ console.log("Base Rate/km: "+baseRate)
     
     // number of stops 500 - competitive rates
     var quoteresultbox = document.getElementById("quoteResult");
-    quoteresultbox.innerHTML="Estimated Min Quote: " + quoteMin +" ZAR <br>"+  " Estimated Mid Quote: " + quoteMax + " ZAR<br>"  +"Estimated Max Quote: "+ quickquote + " ZAR";
+    quoteresultbox.innerHTML="Estimated Min Quote: " + quoteMin +" ZAR <br>"+  " Estimated Max Quote: " + quoteMax + " ZAR<br>"  +"ZAR/KM Quote: "+ quickquote + " ZAR";
     //document.getElementById('quoteResult').innerHTML = `Estimated Min Quote: ${quoteMin.toFixed(2)} ZAR ${\n} Estimated Max Quote: ${quoteMax.toFixed(2)} ZAR`;
 });
