@@ -1,5 +1,8 @@
+
 var swaps = document.getElementById("swaps")
 var swapsVal = 1;
+
+var SBD = document.getElementById("SBD");
 var iframeContainer = document.getElementById("iframeContainer")
 
 swaps.onclick=function(){
@@ -25,7 +28,7 @@ swaps.onclick=function(){
 
 document.getElementById('quoteForm').addEventListener('submit', function (e) {
     e.preventDefault();
-
+SBD.style.display="";
     const distance = document.getElementById('distance').value;
     const weight = document.getElementById('weight').value;
     const volume = document.getElementById('volume').value;
@@ -33,6 +36,7 @@ document.getElementById('quoteForm').addEventListener('submit', function (e) {
     const trailer = document.getElementById("Trailer").value; // ad if statment 
 
     // Sample logic for quote calculation
+    
     
     var baseRate = 15;
     var trailerRate = 0 //change for distance.
@@ -64,15 +68,35 @@ console.log("Base Rate/km: "+baseRate)
     const toll = document.getElementById("toll").value;
     var quickquote = distance * baseRate;
     var DaysWorking = document.getElementById("DaysWorking").value;
+    var FCBD = document.getElementById("FuelConsumps");
+    var NWBD = document.getElementById("workerscalc");
+    var CDBD = document.getElementById("ChargeDaily");
+    var MTBD = document.getElementById("MaintenanceBD");
+    var TLBD = document.getElementById("TollBD");
+    var TBD = document.getElementById("TrailerBD");
+    var GTBD = document.getElementById("totalBD");
     
-    console.log(trailerRate)
+    
     const MaintPD = 1000;
-    
-    
-    
-    
     const quoteMin = (FuelConsump) + (NumberWorkers * WorkerRate) + (profitPDmin * DaysWorking) + (MaintPD *DaysWorking) + (toll*1) + (trailerRate *1) ;   
     const quoteMax = (FuelConsump ) + (NumberWorkers * WorkerRate) + (profitPDmax * DaysWorking) + (MaintPD *DaysWorking) + (toll*1) + (trailerRate *1); 
+    
+    FCBD.innerHTML=(distance / 100) * 20 * fuelPrice;
+    NWBD.innerHTML=NumberWorkers * WorkerRate;
+    CDBD.innerHTML=profitPDmin * DaysWorking;
+    MTBD.innerHTML=MaintPD * DaysWorking;
+    TLBD.innerHTML=toll*1;
+    TBD.innerHTML=trailerRate *1;
+    GTBD.innerHTML=quoteMin + " or " + quoteMax;
+    
+    
+    
+    
+    console.log(trailerRate)
+    
+    
+    
+    
     
     
     
@@ -84,5 +108,28 @@ console.log("Base Rate/km: "+baseRate)
     // number of stops 500 - competitive rates
     var quoteresultbox = document.getElementById("quoteResult");
     quoteresultbox.innerHTML="Estimated Min Quote: " + quoteMin +" ZAR <br>"+  " Estimated Max Quote: " + quoteMax + " ZAR<br>"  +"ZAR/KM Quote: "+ quickquote + " ZAR";
+    
+    
     //document.getElementById('quoteResult').innerHTML = `Estimated Min Quote: ${quoteMin.toFixed(2)} ZAR ${\n} Estimated Max Quote: ${quoteMax.toFixed(2)} ZAR`;
 });
+
+
+var TBL = document.getElementById("BDT");
+var IsShowing = 0;
+
+TBL.style.display="none";
+SBD.style.display="none";
+
+SBD.onclick=function(){
+    if(IsShowing == 0){
+        IsShowing++;
+        TBL.style.display="";
+        console.log(IsShowing);
+    }else{
+        IsShowing--;
+        TBL.style.display="none";
+        console.log(IsShowing);
+    }
+}
+
+
