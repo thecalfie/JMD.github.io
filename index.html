@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8">">
     <title>JMD Logistics Quote Generator</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/JMD_logo.jpg">
@@ -12,7 +12,7 @@
         <form id="quoteForm">
             <label for="weight">Toll Calculator</label>
             <div id="iframeContainer" style="width: 100%">
-            <iframe src="https://www.jhbtruckhire.co.za/Toll-Gates-Calculator.html" height="300px;" width="100%" id="iframegm"></iframe></div><button id="swaps">Swap to Google Maps</button>
+            <iframe src="https://www.jhbtruckhire.co.za/Toll-Gates-Calculator.html" height="300px;" width="100%" id="iframegm"></iframe></div><button id="swaps" type="button">Swap to Google Maps</button> 
             <label for="distance">Distance (km):</label>
             <input type="number" id="distance" name="distance" required>
             
@@ -40,6 +40,66 @@
             <button type="submit">Get Quote</button>
         </form>
         <div id="quoteResult"></div>
+        <div id="BreakdownBox">
+        <div id="SBD">Show Break Down</div>
+        <div >
+            <table id="BDT">
+            <th class="TH">Reason</th>
+            <th class="TH">Formula</th>
+            <th class="TH">Total</th>
+             <!--Example-->   
+<!--
+            <tr class="tableRow">
+                <td class="td1"></td>
+                <td class="td2"></td>
+                <td class="td3"></td>
+                </tr>
+-->
+<!--End of Example-->
+                <tr class="tableRow">
+                <td class="td1">Fuel Consumption</td>
+                <td class="td2" style="font-size: 12px">( <span class="fraction">
+            <span class="numerator">distance</span>
+            <span class="denominator">100</span>
+        </span> x 20)x 25</td>
+                <td class="td3" id="FuelConsumps"></td>
+                </tr>
+                  <tr class="tableRow">
+                <td class="td1">Workers</td>
+                <td class="td2">(# of workers x 250) </td>
+                <td class="td3" id="workerscalc"></td>
+                </tr>
+                  <tr class="tableRow">
+                <td class="td1">Daily Work Charge</td>
+                <td class="td2">3000 or 5000 x Days Working</td>
+                <td class="td3" id="ChargeDaily"></td>
+                </tr>
+                  <tr class="tableRow">
+                <td class="td1">Maintenance</td>
+                <td class="td2">1000*day working</td>
+                <td class="td3" id="MaintenanceBD"></td>
+                </tr>
+                  <tr class="tableRow">
+                <td class="td1">Toll Fees</td>
+                <td class="td2"> + Toll</td>
+                <td class="td3" id="TollBD"></td>
+                </tr>
+                <tr class="tableRow">
+                <td class="td1">Trailer</td>
+                <td class="td2">+ Trailer Rate</td>
+                <td class="td3" id="TrailerBD"></td>
+                </tr>
+                
+            <tr class="tableRow">
+                <td class="td1">Grand Total: </td>
+                <td class="td2">sum of all</td>
+                <td class="td3" id="totalBD"></td>
+                </tr>
+            </table>
+            
+            
+            </div>
+        </div>
     </div>
     <script src="scripts.js"></script>
 </body>
