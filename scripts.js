@@ -33,7 +33,11 @@ SBD.style.display="";
     const weight = document.getElementById('weight').value;
     const volume = document.getElementById('volume').value;
     const NumberWorkers = document.getElementById('NumWorkers').value;
-    const trailer = document.getElementById("Trailer").value; // ad if statment 
+    const trailer = document.getElementById("Trailer").value; 
+    var NumStops = document.getElementById("numStops").value;
+    var CostStops = document.getElementById("CostStops").value;
+    
+    // ad if statment 
 
     // Sample logic for quote calculation
     
@@ -75,19 +79,20 @@ console.log("Base Rate/km: "+baseRate)
     var TLBD = document.getElementById("TollBD");
     var TBD = document.getElementById("TrailerBD");
     var GTBD = document.getElementById("totalBD");
-    
+    const StopsBD = document.getElementById("StopsBD");
     
     const MaintPD = 1000;
-    const quoteMin = (FuelConsump) + (NumberWorkers * WorkerRate) + (profitPDmin * DaysWorking) + (MaintPD *DaysWorking) + (toll*1) + (trailerRate *1) ;   
-    const quoteMax = (FuelConsump ) + (NumberWorkers * WorkerRate) + (profitPDmax * DaysWorking) + (MaintPD *DaysWorking) + (toll*1) + (trailerRate *1); 
+    const quoteMin = (FuelConsump) + (NumberWorkers * WorkerRate) + (profitPDmin * DaysWorking) + (MaintPD *DaysWorking) + (toll*2) + (trailerRate *1) + (CostStops * NumStops) ;   
+    const quoteMax = (FuelConsump ) + (NumberWorkers * WorkerRate) + (profitPDmax * DaysWorking) + (MaintPD *DaysWorking) + (toll*1) + (trailerRate *1) + (CostStops * NumStops) ; 
     
     FCBD.innerHTML=(distance / 100) * 20 * fuelPrice;
     NWBD.innerHTML=NumberWorkers * WorkerRate;
-    CDBD.innerHTML=profitPDmin * DaysWorking;
+    CDBD.innerHTML=profitPDmin * DaysWorking + " to " + profitPDmax * DaysWorking;
     MTBD.innerHTML=MaintPD * DaysWorking;
-    TLBD.innerHTML=toll*1;
+    TLBD.innerHTML=toll*2;
     TBD.innerHTML=trailerRate *1;
-    GTBD.innerHTML=quoteMin + " or " + quoteMax;
+    StopsBD.innerHTML= NumStops*CostStops;
+    GTBD.innerHTML=quoteMin + " to " + quoteMax;
     
     
     
